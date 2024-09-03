@@ -8,11 +8,11 @@
 		<version>2.5.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.linkedin</groupId>
-	<artifactId>linkedin-clone</artifactId>
+	<groupId>com.skillproof</groupId>
+	<artifactId>skillproof-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>linkedin-clone</name>
-	<description>Demo project for Spring Boot</description>
+	<name>skillproof-api</name>
+	<description>Social Media App for SkillBridge</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
