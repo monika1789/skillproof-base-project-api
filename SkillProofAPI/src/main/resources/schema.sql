@@ -1,2 +1,36 @@
-CREATE DATABASE  IF NOT EXISTS `linkedin_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `linkedin_db`;
+--CREATE DATABASE  IF NOT EXISTS `linkedin_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+--USE `linkedin_db`;
+
+CREATE TABLE IF NOT EXISTS user (
+  id VARCHAR(20) NOT NULL,
+  first_name VARCHAR(100) NOT NULL,
+  last_name VARCHAR(100) NOT NULL,
+  username VARCHAR(201) NOT NULL,
+  city VARCHAR(250) NOT NULL,
+  phone VARCHAR(20) NULL,
+  email_address VARCHAR(100) NOT NULL,
+  password VARCHAR(100) NOT NULL,
+  bio TEXT NULL,
+  created_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_date TIMESTAMP NULL,
+  PRIMARY KEY (id),
+  UNIQUE (`email_address`)
+);
+
+CREATE TABLE IF NOT EXISTS education (
+  id BIGINT AUTO_INCREMENT,
+  university VARCHAR(250) NOT NULL,
+  college_or_school VARCHAR(250) NOT NULL,
+  degree VARCHAR(100) NOT NULL,
+  grade FLOAT NOT NULL,
+  description VARCHAR(250),
+  start_date DATE NOT NULL,
+  end_date DATE NOT NULL,
+  user_id VARCHAR(20) NOT NULL,
+  created_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_date TIMESTAMP NULL,
+  PRIMARY KEY (id),
+  CONSTRAINT `FK_EDUCATION_USER`
+    FOREIGN KEY (user_id)
+    REFERENCES user (id)
+);
